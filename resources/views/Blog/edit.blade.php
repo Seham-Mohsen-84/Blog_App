@@ -18,10 +18,14 @@
                 <div class="mb-3">
                     <label for="creator" class="form-label">Creator</label>
                     <select class="form-control" name="creator">
+                        <option value="0">Choose Creator</option>
                         @foreach($users as $user)
-                            <option value="{{$blog->user->id}}">{{$blog->user->name}}</option>
+                            <option value="{{ $user->id }}" {{ $blog->user_id == $user->id ? 'selected' : '' }}>
+                                {{ $user->name }}
+                            </option>
                         @endforeach
                     </select>
+
                 </div>
 
                 <button type="submit" class="btn btn-outline-warning">Update</button>

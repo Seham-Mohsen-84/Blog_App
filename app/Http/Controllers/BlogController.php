@@ -31,10 +31,16 @@ class BlogController extends Controller
      */
     public function store(Request $request)
     {
+        request()->validate([
+            'title' => ['required', 'string', 'max:255','min:3'],
+            'description' => ['required', 'string', 'max:255','min:3'],
+            'creator' => ['required'],
+        ]);
+
        Blog::create([
            'title'=>request('title'),
            'description'=>request('description'),
-           'user_id'=>request('user_id')
+           'user_id'=>request('creator'),
        ]);
         return to_route('blog.index');
     }
@@ -61,10 +67,15 @@ class BlogController extends Controller
      */
     public function update(Request $request, Blog $blog)
     {
+        request()->validate([
+            'title' => ['required', 'string', 'max:255','min:3'],
+            'description' => ['required', 'string', 'max:255','min:3'],
+            'creator' => ['required'],
+        ]);
         $blog->update([
             'title'=>request('title'),
             'description'=>request('description'),
-            'user_id'=>request('user_id'),
+            'user_id'=>request('creator'),
         ]);
         return to_route('blog.show', $blog);
     }
