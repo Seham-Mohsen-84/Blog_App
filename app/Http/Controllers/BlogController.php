@@ -34,7 +34,7 @@ class BlogController extends Controller
         request()->validate([
             'title' => ['required', 'string', 'max:255','min:3'],
             'description' => ['required', 'string', 'max:255','min:3'],
-            'creator' => ['required'],
+            'creator' => ['required','exists:users,id'],
         ]);
 
        Blog::create([
@@ -70,7 +70,7 @@ class BlogController extends Controller
         request()->validate([
             'title' => ['required', 'string', 'max:255','min:3'],
             'description' => ['required', 'string', 'max:255','min:3'],
-            'creator' => ['required'],
+            'creator' => ['required','exists:users,id'],
         ]);
         $blog->update([
             'title'=>request('title'),
