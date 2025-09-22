@@ -23,16 +23,16 @@
 
                 <div class="mb-3">
                     <label for="title" class="form-label">Title</label>
-                    <input type="text" name="title" id="title" value="" class="form-control" placeholder="Title" required>
+                    <input type="text" name="title" id="title" value="{{old('title')}}" class="form-control" placeholder="Title" required>
                 </div>
                 <div class="mb-3">
                     <label for="description" class="form-label">Description</label>
-                    <textarea name="description" class="form-control" id="description" placeholder="Description"></textarea>
+                    <textarea name="description" class="form-control" id="description" placeholder="Description">{{old('description')}}</textarea>
                 </div>
                 <div class="mb-3">
                     <label for="creator" class="form-label">Creator</label>
                     <select class="form-control" name="creator">
-                        <option value="0">Choose Creator</option>
+                        <option value='' disabled selected>Choose Creator</option>
                         @foreach($users as $user)
                             <option value="{{$user->id}}">{{$user->name}}</option>
                         @endforeach
