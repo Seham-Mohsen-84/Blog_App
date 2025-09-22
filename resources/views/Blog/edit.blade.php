@@ -1,6 +1,18 @@
 @extends('layouts.blog')
 @section('title','Edit')
 @section('content')
+    <h1>Edit Post</h1>
+
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+
     <div class="card shadow-sm">
         <div class="card-body">
             <form action="{{ route('blog.update',$blog->id) }}" method="POST">
