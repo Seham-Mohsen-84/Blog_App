@@ -17,7 +17,7 @@
         <div class="card-body">
             <h5 class="card-title"><b>UserName : </b>{{$blog->user ? $blog->user->name:'NotFound'}}</h5>
             <p class="card-text"><b>UserEmail : </b>{{$blog->user ? $blog->user->email: 'NotFound'}}</p>
-            <p class="card-text"><b>JoinAt : </b>{{$blog->user ? $blog->user->created_at: 'NotFound'}}</p>
+            <p class="card-text"><b>JoinAt : </b>{{$blog->user ? $blog->user->created_at->format('y-m-d'): 'NotFound'}}</p>
         </div>
     </div>
     <div class="mt-3">

@@ -17,7 +17,7 @@
             <td>{{$blog->id}}</td>
             <td>{{$blog->title}}</td>
             <td>{{$blog->user ? $blog->user->name: 'NotFound'}}</td>
-            <td>{{$blog->created_at}}</td>
+            <td>{{$blog->created_at->format('y-m-d')}}</td>
             <td colspan="3">
                 <a href="{{route('blog.show',$blog->id)}}" class="btn btn-outline-info">View</a>
                 <a href="{{ route('blog.edit',$blog->id) }}" class="btn btn-outline-warning">Edit</a>
